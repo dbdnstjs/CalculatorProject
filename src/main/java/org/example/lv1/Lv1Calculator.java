@@ -10,12 +10,11 @@ public class Lv1Calculator {
         char[] operators = {'+', '-', '*', '/', '%'};
         long x, y, result = 0;
 
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in); // Scanner 자원 생성
         try {
             while (true) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
                 x = sc.nextLong();
-
                 chk = true;
                 while (chk) {
                     System.out.print("사칙연산 기호를 입력하세요 (+, -, *, /, %) : ");
@@ -52,8 +51,8 @@ public class Lv1Calculator {
                 System.out.println("결과: " + result);
 
                 System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-                String ex = sc.next();
-                if (ex.equals("exit")) break;
+                String is_exit = sc.next();
+                if (is_exit.equals("exit")) break;
                 sc.nextLine(); //버퍼 비우기
             }
         } catch (ArithmeticException e) {
@@ -66,7 +65,7 @@ public class Lv1Calculator {
             System.out.println("오류: " + e.getMessage());
             sc.nextLine();
         } finally {
-            sc.close();
+            sc.close();// Scanner 자원 해제
         }
     }
 }
