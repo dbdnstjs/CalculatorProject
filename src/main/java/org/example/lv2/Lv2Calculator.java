@@ -40,7 +40,7 @@ public class Lv2Calculator {
                     String is_print = sc.next();
                     if (is_print.equals("Y") || is_print.equals("y")) {
                         chk = false;
-                        System.out.println("저장된 결과: " + cal.getSum());
+                        System.out.println("저장된 결과: " + cal.getResults());
                     } else if (is_print.equals("N") || is_print.equals("n")) {
                         chk = false;
                     }
@@ -53,7 +53,7 @@ public class Lv2Calculator {
                     if (is_del.equals("Y") || is_del.equals("y")) {
                         if (cal.removeResult()) {
                             System.out.println("삭제 완료.");
-                            System.out.println("현재 저장된 결과: " + cal.getSum());
+                            System.out.println("현재 저장된 결과: " + cal.getResults());
                         } else {
                             chk = false;
                             System.out.println("삭제할 결과가 없습니다.");
