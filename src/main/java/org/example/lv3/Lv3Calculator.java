@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Lv3Calculator {
     public static void main(String[] args) {
+        boolean chk;
         double x, y, result;
         String z;
 
@@ -62,15 +63,41 @@ public class Lv3Calculator {
                                 break;
                             } else result = x % y;
                     }
+                    System.out.println(cal.getX() + " " + op.getOp() + " " + cal.getY() + " = " + result);
 
-                    /*
-                    System.out.println("x :" + cal.getX());
-                    System.out.println("y :" + cal.getY());
-                    System.out.println("Z :" + op.getOp());
-                    System.out.println("hap :" + result);
-                    */
-                    System.out.println(cal.getX()+" "+op.getOp()+" "+ cal.getY()+" = "+result);
+                    chk = true;
+                    while (chk) {
+                        System.out.println("현재 저장된 결과를 저장하겠습니까? (Y/N)");
+                        String is_print = sc.next();
+                        if (is_print.equals("Y") || is_print.equals("y")) {
+                            chk = false;
+                            cal.addresults(result);
+                            System.out.println("저장된 결과: " + cal.getResults());
+                        } else if (is_print.equals("N") || is_print.equals("n")) {
+                            chk = false;
+                        } else {
+                            System.out.println("오류 : Y 또는 N 중 하나를 입력하세요.");
+                        }
+                    }
 
+                    chk = true;
+                    while (chk) {
+                        System.out.println("가장 오래된 결과를 삭제하겠습니까? (Y/N)");
+                        String is_del = sc.next();
+                        if (is_del.equals("Y") || is_del.equals("y")) {
+                            if (cal.removeResult()) {
+                                System.out.println("삭제 완료.");
+                                System.out.println("현재 저장된 결과: " + cal.getResults());
+                            } else {
+                                chk = false;
+                                System.out.println("삭제할 결과가 없습니다.");
+                            }
+                        } else if (is_del.equals("N") || is_del.equals("n")) {
+                            chk = false;
+                        } else {
+                            System.out.println("오류 : Y 또는 N 중 하나를 입력하세요.");
+                        }
+                    }
                 }
             } catch (IllegalArgumentException e) {
                 System.out.println("오류: 지원하지 않는 연산자입니다.");
@@ -88,10 +115,6 @@ public class Lv3Calculator {
             sc.nextLine(); //버퍼 비우기
         }
         sc.close();// Scanner 자원 해제
-
-        //저장 여부
-
-        //삭제 여부
 
         //스트림 + 람다로 조회조건 추가 (큰순 출력, 작은순 출력, 원하는 값 조회, 원하는 범위 값 출력)
 
