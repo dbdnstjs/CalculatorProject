@@ -71,7 +71,7 @@ public class Lv3Calculator {
                         String is_print = sc.next();
                         if (is_print.equals("Y") || is_print.equals("y")) {
                             chk = false;
-                            cal.addresults(result);
+                            cal.addResults(result);
                             System.out.println("저장된 결과: " + cal.getResults());
                         } else if (is_print.equals("N") || is_print.equals("n")) {
                             chk = false;
@@ -98,6 +98,8 @@ public class Lv3Calculator {
                             System.out.println("오류 : Y 또는 N 중 하나를 입력하세요.");
                         }
                     }
+
+
                 }
             } catch (IllegalArgumentException e) {
                 System.out.println("오류: 지원하지 않는 연산자입니다.");

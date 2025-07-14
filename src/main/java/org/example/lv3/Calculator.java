@@ -31,7 +31,7 @@ public class Calculator<T extends Number> {
         this.results = setResults;
     }
 
-    public void addresults (T num){
+    public void addResults (T num){
         results.add(num);
     }
 
