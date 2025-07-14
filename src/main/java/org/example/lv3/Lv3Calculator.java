@@ -116,8 +116,8 @@ public class Lv3Calculator {
                         System.out.println("큰순으로 저장된 결과를 출력하겠습니까? (Y/N)");
                         String is_desc = sc.next();
                         if (is_desc.equals("Y") || is_desc.equals("y")) {
-                            List<Double>  result_desc = cal.getResults().stream().sorted().collect(Collectors.toList());
-                            System.out.println("내림차순 결과: "+result_desc);
+                            List<Double> result_desc = cal.getResults().stream().sorted().collect(Collectors.toList());
+                            System.out.println("내림차순 결과: " + result_desc);
                             break;
                         } else if (is_desc.equals("N") || is_desc.equals("n")) {
                             break;
@@ -130,8 +130,8 @@ public class Lv3Calculator {
                         System.out.println("작은순으로 저장된 결과를 출력하겠습니까? (Y/N)");
                         String is_asc = sc.next();
                         if (is_asc.equals("Y") || is_asc.equals("y")) {
-                            List<Double>  result_asc = cal.getResults().stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
-                            System.out.println("오름차순 결과: "+result_asc);
+                            List<Double> result_asc = cal.getResults().stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+                            System.out.println("오름차순 결과: " + result_asc);
                             break;
                         } else if (is_asc.equals("N") || is_asc.equals("n")) {
                             break;
@@ -139,6 +139,24 @@ public class Lv3Calculator {
                             System.out.println("오류 : Y 또는 N 중 하나를 입력하세요.");
                         }
                     }
+
+                    while (true) {
+                        System.out.println("원하는 범위의 값을 출력하겠습니까? (Y/N)");
+                        String is_range = sc.next();
+                        if (is_range.equals("Y") || is_range.equals("y")) {
+                            System.out.print("시작값을 입력하세요: ");
+                            double st = sc.nextDouble();
+                            System.out.print("끝값을 입력하세요: ");
+                            double la = sc.nextDouble();
+                            List<Double> result_range = cal.getResults().stream().filter(a -> a >= st && a <= la).collect(Collectors.toList());
+                            System.out.println(st + "와 " + la + "범위 내의 값입니다.: " + result_range);
+                        } else if (is_range.equals("N") || is_range.equals("n")) {
+                            break;
+                        } else {
+                            System.out.println("오류 : Y 또는 N 중 하나를 입력하세요.");
+                        }
+                    }
+
                     break;
                 }
             } catch (IllegalArgumentException e) {
@@ -157,10 +175,5 @@ public class Lv3Calculator {
             sc.nextLine(); //버퍼 비우기
         }
         sc.close();// Scanner 자원 해제
-
-        //스트림 + 람다로 조회조건 추가 (큰순 출력, 작은순 출력, 원하는 값 조회, 원하는 범위 값 출력)
-
-        //깃
-
     }
 }
