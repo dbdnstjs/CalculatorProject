@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Lv3Calculator {
     public static void main(String[] args) {
-        double x, y;
+        double x, y,result;
         String z;
 
         Calculator<Double> cal = new Calculator<>(); // Calculator 객체 생성, 제네릭 타입 명시
@@ -38,9 +38,37 @@ public class Lv3Calculator {
                     break;
                 }
 
+                result = 0;
+                switch (op.getOp()) {
+                    case "+":
+                        result = x + y;
+                        break;
+                    case "-":
+                        result = x - y;
+                        break;
+                    case "*":
+                        result = x * y;
+                        break;
+                    case "/":
+                        if(y==0){
+                            System.out.println("오류: 0으로 나눌 수 없습니다.");
+                            break;
+                        }
+                        result = x / y;
+                        break;
+                    case "%":
+                        if(y==0){
+                            System.out.println("오류: 0으로 나눌 수 없습니다.");
+                            break;
+                        }
+                        result = x % y;
+                        break;
+                }
+
                 System.out.println("x :" + cal.getX());
                 System.out.println("y :" + cal.getY());
                 System.out.println("Z :" + op.getOp());
+                System.out.println("hap :" + result);
 
                 sc.nextLine(); //버퍼 비우기
                 break;
@@ -56,9 +84,6 @@ public class Lv3Calculator {
         } finally {
             sc.close();// Scanner 자원 해제
         }
-
-        //합 출력
-
         //저장 여부
 
         //삭제 여부
