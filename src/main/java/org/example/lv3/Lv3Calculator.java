@@ -32,6 +32,12 @@ public class Lv3Calculator {
                     }
                 }
 
+                if(op==null){
+                    System.out.println("오류: 올바르지 않은 연산자 기호입니다.");
+                    sc.nextLine(); // 버퍼 정리
+                    break;
+                }
+
                 System.out.println("x :" + cal.getX());
                 System.out.println("y :" + cal.getY());
                 System.out.println("Z :" + op.getOp());
@@ -40,10 +46,7 @@ public class Lv3Calculator {
                 break;
             }
         } catch (IllegalArgumentException e) {
-            System.out.println("지원하지 않는 연산자입니다.");
-        } catch (NullPointerException e) {
-            System.out.println("오류: 올바르지 않은 연산자 기호입니다.");
-            sc.nextLine();
+            System.out.println("오류: 지원하지 않는 연산자입니다.");
         } catch (InputMismatchException e) {
             System.out.println("오류: 숫자가 아닌 값을 입력했습니다.");
             sc.nextLine();
@@ -54,14 +57,6 @@ public class Lv3Calculator {
             sc.close();// Scanner 자원 해제
         }
 
-        //enum 구현
-
-        //값 입력
-
-        //연산자 입력
-
-        //값 입력
-
         //합 출력
 
         //저장 여부
@@ -69,10 +64,6 @@ public class Lv3Calculator {
         //삭제 여부
 
         //스트림 + 람다로 조회조건 추가 (큰순 출력, 작은순 출력, 원하는 값 조회, 원하는 범위 값 출력)
-
-        //제네릭으로 실수 구현
-
-        //예외 처리
 
         //깃
 

@@ -18,8 +18,4 @@ public class Calculator <T extends Number>{
     public T getY(){
         return y;
     }
-
-    //getter 구현
-
-    //setter 구현
 }
