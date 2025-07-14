@@ -40,6 +40,7 @@ public class Lv3Calculator {
                         break;
                     }
 
+                    chk = false;
                     result = 0;
                     switch (op.getOp()) {
                         case "+":
@@ -53,16 +54,25 @@ public class Lv3Calculator {
                             break;
                         case "/":
                             if (y == 0) {
+                                chk = true;
                                 System.out.println("오류: 0으로 나눌 수 없습니다.");
                                 break;
-                            } else result = x / y;
-
+                            } else {
+                                result = x / y;
+                                break;
+                            }
                         case "%":
                             if (y == 0) {
+                                chk = true;
                                 System.out.println("오류: 0으로 나눌 수 없습니다.");
                                 break;
-                            } else result = x % y;
+                            } else {
+                                result = x % y;
+                                break;
+                            }
                     }
+
+                    if(chk) break;
                     System.out.println(cal.getX() + " " + op.getOp() + " " + cal.getY() + " = " + result);
 
                     chk = true;
