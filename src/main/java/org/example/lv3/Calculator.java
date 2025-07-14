@@ -3,6 +3,7 @@ package org.example.lv3;
 import java.util.ArrayList;
 import java.util.List;
 
+//제네릭 클래스 선언
 public class Calculator<T extends Number> {
     private T x, y;
     private List<T> results = new ArrayList<>(); // 연산 결과들을 저장할 리스트
@@ -27,6 +28,7 @@ public class Calculator<T extends Number> {
         return results;
     }
 
+    //결과 저장
     public void addResults (T num){
         results.add(num);
     }

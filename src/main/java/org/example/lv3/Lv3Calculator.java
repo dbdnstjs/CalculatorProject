@@ -12,7 +12,7 @@ public class Lv3Calculator {
         double x, y, result;
         String z;
 
-        Calculator<Double> cal = new Calculator<>(); // Calculator 객체 생성, 제네릭 타입 명시
+        Calculator<Double> cal = new Calculator<>(); // Calculator 객체 생성, 제네릭 타입
         Scanner sc = new Scanner(System.in); // Scanner 자원 생성
 
         while (true) {
@@ -29,6 +29,7 @@ public class Lv3Calculator {
                     System.out.print("사칙연산 기호를 입력하세요 (+, -, *, /, %) : ");
                     z = sc.next();
 
+                    //입력된 문자열과 일치하는 연산자 찾기
                     Operator op = null;
                     for (Operator i : Operator.values()) {
                         if (i.getOp().equals(z)) {

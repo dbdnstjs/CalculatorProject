@@ -1,5 +1,6 @@
 package org.example.lv3;
 
+//연산기호 모음
 public enum Operator {
     PLUS("+"),
     MINUS("-"),
