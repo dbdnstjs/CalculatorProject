@@ -7,7 +7,7 @@ public enum Operator {
     DIVIDE("/"),
     MODULO("%");
 
-    private String op;
+    private final String op;
 
     Operator(String op) {
         this.op = op;
