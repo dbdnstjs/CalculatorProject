@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Lv3Calculator {
     public static void main(String[] args) {
-        double x,y;
+        double x, y;
         String z;
 
         Calculator<Double> cal = new Calculator<>(); // Calculator 객체 생성, 제네릭 타입 명시
@@ -24,16 +24,25 @@ public class Lv3Calculator {
                 System.out.print("사칙연산 기호를 입력하세요 (+, -, *, /, %) : ");
                 z = sc.next();
 
-                System.out.println("x :"+cal.getX());
-                System.out.println("y :"+cal.getY());
+                Operator op = null;
+                for (Operator i : Operator.values()) {
+                    if (i.getOp().equals(z)) {
+                        op = i;
+                        break;
+                    }
+                }
+
+                System.out.println("x :" + cal.getX());
+                System.out.println("y :" + cal.getY());
+                System.out.println("Z :" + op.getOp());
 
                 sc.nextLine(); //버퍼 비우기
                 break;
             }
-        }catch (InputMismatchException e) {
+        } catch (InputMismatchException e) {
             System.out.println("오류: 숫자가 아닌 값을 입력했습니다.");
             sc.nextLine();
-        }catch (Exception e) {  //기타 오류
+        } catch (Exception e) {  //기타 오류
             System.out.println("오류: " + e.getMessage());
             sc.nextLine();
         } finally {
