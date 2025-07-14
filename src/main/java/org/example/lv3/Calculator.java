@@ -1,21 +1,21 @@
 package org.example.lv3;
 
-public class Calculator <T extends Number>{
-    private T x,y;
+public class Calculator<T extends Number> {
+    private T x, y;
 
-    public void setX(T x){
+    public void setX(T x) {
         this.x = x;
     }
 
-    public void setY(T y){
+    public void setY(T y) {
         this.y = y;
     }
 
-    public T getX(){
+    public T getX() {
         return x;
     }
 
-    public T getY(){
+    public T getY() {
         return y;
     }
 }
