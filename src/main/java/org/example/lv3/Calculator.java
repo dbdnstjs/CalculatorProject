@@ -1,9 +1,23 @@
 package org.example.lv3;
 
-public class Calculator {
+public class Calculator <T extends Number>{
+    private T x,y;
 
+    public void setX(T x){
+        this.x = x;
+    }
 
-    //enum -> operator 구현
+    public void setY(T y){
+        this.y = y;
+    }
+
+    public T getX(){
+        return x;
+    }
+
+    public T getY(){
+        return y;
+    }
 
     //getter 구현
 
