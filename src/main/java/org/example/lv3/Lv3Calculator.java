@@ -1,7 +1,10 @@
 package org.example.lv3;
 
+import java.util.Comparator;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Lv3Calculator {
     public static void main(String[] args) {
@@ -72,7 +75,7 @@ public class Lv3Calculator {
                             }
                     }
 
-                    if(chk) break;
+                    if (chk) break;
                     System.out.println(cal.getX() + " " + op.getOp() + " " + cal.getY() + " = " + result);
 
                     chk = true;
@@ -95,7 +98,7 @@ public class Lv3Calculator {
                         System.out.println("가장 오래된 결과를 삭제하겠습니까? (Y/N)");
                         String is_del = sc.next();
                         if (is_del.equals("Y") || is_del.equals("y")) {
-                            if (cal.removeResult()) {
+                            if (cal.removeResults()) {
                                 System.out.println("삭제 완료.");
                                 System.out.println("현재 저장된 결과: " + cal.getResults());
                             } else {
@@ -109,7 +112,34 @@ public class Lv3Calculator {
                         }
                     }
 
+                    while (true) {
+                        System.out.println("큰순으로 저장된 결과를 출력하겠습니까? (Y/N)");
+                        String is_desc = sc.next();
+                        if (is_desc.equals("Y") || is_desc.equals("y")) {
+                            List<Double>  result_desc = cal.getResults().stream().sorted().collect(Collectors.toList());
+                            System.out.println("내림차순 결과: "+result_desc);
+                            break;
+                        } else if (is_desc.equals("N") || is_desc.equals("n")) {
+                            break;
+                        } else {
+                            System.out.println("오류 : Y 또는 N 중 하나를 입력하세요.");
+                        }
+                    }
 
+                    while (true) {
+                        System.out.println("작은순으로 저장된 결과를 출력하겠습니까? (Y/N)");
+                        String is_asc = sc.next();
+                        if (is_asc.equals("Y") || is_asc.equals("y")) {
+                            List<Double>  result_asc = cal.getResults().stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+                            System.out.println("오름차순 결과: "+result_asc);
+                            break;
+                        } else if (is_asc.equals("N") || is_asc.equals("n")) {
+                            break;
+                        } else {
+                            System.out.println("오류 : Y 또는 N 중 하나를 입력하세요.");
+                        }
+                    }
+                    break;
                 }
             } catch (IllegalArgumentException e) {
                 System.out.println("오류: 지원하지 않는 연산자입니다.");

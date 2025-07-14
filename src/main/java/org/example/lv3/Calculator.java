@@ -27,16 +27,12 @@ public class Calculator<T extends Number> {
         return results;
     }
 
-    public void setResults(List<T> setResults) {
-        this.results = setResults;
-    }
-
     public void addResults (T num){
         results.add(num);
     }
 
     // 오래된 결과 삭제
-    public boolean removeResult() {
+    public boolean removeResults() {
         if (!results.isEmpty()) {
             results.remove(0);
             return true;
