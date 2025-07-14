@@ -39,6 +39,11 @@ public class Lv3Calculator {
                 sc.nextLine(); //버퍼 비우기
                 break;
             }
+        } catch (IllegalArgumentException e) {
+            System.out.println("지원하지 않는 연산자입니다.");
+        } catch (NullPointerException e) {
+            System.out.println("오류: 올바르지 않은 연산자 기호입니다.");
+            sc.nextLine();
         } catch (InputMismatchException e) {
             System.out.println("오류: 숫자가 아닌 값을 입력했습니다.");
             sc.nextLine();
